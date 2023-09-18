@@ -26,15 +26,14 @@ public class UserDaoJDBCImpl implements UserDao {
                 Util.connectionJDBC.rollback();
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            throw new RuntimeException("Error creating the table");
-        }
-        finally {
+            e.printStackTrace();
+        } finally {
             try {
                 Util.connectionJDBC.setAutoCommit(true);
             } catch (SQLException e) {
-                throw new RuntimeException("Error setAutoCommit(true)");
+                e.printStackTrace();
             }
         }
     }
@@ -51,15 +50,14 @@ public class UserDaoJDBCImpl implements UserDao {
                 Util.connectionJDBC.rollback();
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            throw new RuntimeException("Error when deleting a table");
-        }
-        finally {
+            e.printStackTrace();
+        } finally {
             try {
                 Util.connectionJDBC.setAutoCommit(true);
             } catch (SQLException e) {
-                throw new RuntimeException("Error setAutoCommit(true)");
+                e.printStackTrace();
             }
         }
     }
@@ -80,15 +78,14 @@ public class UserDaoJDBCImpl implements UserDao {
                 Util.connectionJDBC.rollback();
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            throw new RuntimeException("Error when adding a record to the table");
-        }
-        finally {
+            e.printStackTrace();
+        } finally {
             try {
                 Util.connectionJDBC.setAutoCommit(true);
             } catch (SQLException e) {
-                throw new RuntimeException("Error setAutoCommit(true)");
+                e.printStackTrace();
             }
         }
     }
@@ -106,15 +103,14 @@ public class UserDaoJDBCImpl implements UserDao {
                 Util.connectionJDBC.rollback();
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            throw new RuntimeException("Error when deleting a record from a table");
-        }
-        finally {
+            e.printStackTrace();
+        } finally {
             try {
                 Util.connectionJDBC.setAutoCommit(true);
             } catch (SQLException e) {
-                throw new RuntimeException("Error setAutoCommit(true)");
+                e.printStackTrace();
             }
         }
     }
@@ -136,9 +132,9 @@ public class UserDaoJDBCImpl implements UserDao {
             try {
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            throw new RuntimeException("Error when select from table");
+            e.printStackTrace();
         }
         return userList;
     }
@@ -155,15 +151,14 @@ public class UserDaoJDBCImpl implements UserDao {
                 Util.connectionJDBC.rollback();
                 Util.connectionJDBC.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            throw new RuntimeException("Error when deleting a record from a table");
-        }
-        finally {
+            e.printStackTrace();
+        } finally {
             try {
                 Util.connectionJDBC.setAutoCommit(true);
             } catch (SQLException e) {
-                throw new RuntimeException("Error setAutoCommit(true)");
+                e.printStackTrace();
             }
         }
     }

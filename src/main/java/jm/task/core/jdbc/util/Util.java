@@ -23,8 +23,9 @@ public class Util {
             Connection connection = DriverManager.getConnection(dbUrlConnection, dbUserName, dbUserPassword);
             return connection;
         } catch (SQLException e) {
-            System.out.println("Error connect with database");
-            throw new RuntimeException(e);
+            System.err.println("Error connecting to the database:");
+            e.printStackTrace();
+            return null;
         }
     }
 
