@@ -10,17 +10,13 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    public static final String dbName = "users";
-    public static final String dbTableName = "users";
-    private static final String dbUrlConnection = "jdbc:mysql://localhost/" + dbName;
-    private static final String dbUserName = "root";
-    private static final String dbUserPassword = "1234";
 
     public static Connection connectionJDBC = getConnectionJDBC();
 
     public static Connection getConnectionJDBC() {
         try {
-            Connection connection = DriverManager.getConnection(dbUrlConnection, dbUserName, dbUserPassword);
+            Connection connection = DriverManager.getConnection(Constants.DB_URL,
+                    Constants.DB_USER_NAME, Constants.DB_PASSWORD);
             return connection;
         } catch (SQLException e) {
             System.err.println("Error connecting to the database:");
@@ -36,10 +32,10 @@ public class Util {
 
     private static Properties getPropertiesSessionFactory() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.connection.url", dbUrlConnection);
+        properties.setProperty("hibernate.connection.url", Constants.DB_URL);
         properties.setProperty("dialect", "org.hibernate.dialect.MySQL8Dialect");
-        properties.setProperty("hibernate.connection.username", dbUserName);
-        properties.setProperty("hibernate.connection.password", dbUserPassword);
+        properties.setProperty("hibernate.connection.username", Constants.DB_USER_NAME);
+        properties.setProperty("hibernate.connection.password", Constants.DB_PASSWORD);
         properties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
         return properties;
     }
